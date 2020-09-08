@@ -1,7 +1,7 @@
 import time
 import pandas as pd
 
-CITY_DATA = { 'chicago': 'chicago.csv',
+city_data = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
@@ -26,7 +26,7 @@ def get_filters():
     while True:
         try:
             city = input('Which city do you want to explore (Chicago, New York City, or Washington)?\n')
-            if CITY_DATA.get(city.strip().lower()) is None:
+            if city_data.get(city.strip().lower()) is None:
                 print('City {} is not an option.  Please select a city from the 3 choices.\n'.format(city))
             else:
                 city = city.strip().lower()
@@ -121,21 +121,21 @@ def load_data(city, month, day):
     # value of 99 for month or day means 'All'
     if month < 99:
         #filter by desired month
-        df_temp = pd.read_csv(CITY_DATA[city])
+        df_temp = pd.read_csv(city_data[city])
         df_temp['Month'] = pd.to_datetime(df_temp['Start Time']).dt.month
         df = df_temp[df_temp.Month.eq(month)]
         #print('filtered by month')
         #print(df)
     elif day < 99:
         #filter by desired day
-        df_temp = pd.read_csv(CITY_DATA[city])
+        df_temp = pd.read_csv(city_data[city])
         df_temp['Weekday'] = pd.to_datetime(df_temp['Start Time']).dt.weekday
         df = df_temp[df_temp.Weekday.eq(day)]
         #print('filtered by day')
         #print(df)
     else:
         # no filters
-        df = pd.read_csv(CITY_DATA[city])
+        df = pd.read_csv(city_data[city])
 
     print()
 
@@ -168,8 +168,7 @@ def time_stats(df):
     start_hour_cnt = df.groupby(['Hour'])['Hour'].count()
     print('The most common start hour : ',start_hour_cnt.idxmax(), ' with ',start_hour_cnt.max(), 'counts')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def station_stats(df):
@@ -191,8 +190,7 @@ def station_stats(df):
     print('\nMost frequent combination of start station and end station trip:\n')
     print('-----Start Station-------------End Station----------------\n',start_end_station_cnt.idxmax()," with ",start_end_station_cnt.max()," counts")
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def trip_duration_stats(df):
@@ -207,8 +205,7 @@ def trip_duration_stats(df):
     # display mean travel time
     print('Average Trip Duration: ', df['Trip Duration'].mean())
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def user_stats(df):
@@ -241,8 +238,7 @@ def user_stats(df):
     else:
         print('No Birth Year data available.')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def display_raw_data(df):
