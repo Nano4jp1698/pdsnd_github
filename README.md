@@ -1,15 +1,24 @@
 ### Date created
-Include the date you created this project and README file.
+September 7, 2020
 
 ### Project Title
-Replace the Project Title
+Explore US Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+This project provides an interactive tool for exploring bikeshare
+systems data for three major cities in the United States-Chicago,
+New York City and Washington.  It computes the following descriptive
+statistics:
+* Time stats
+  * Displays statistics on the most frequent times of travel
+* Station stats
+  * Displays statistics on the most popular stations and trip
 
 ### Files used
-Include the files used
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Good reference:
+[Google's Lighthouse](https://github.com/GoogleChrome/lighthouse)
