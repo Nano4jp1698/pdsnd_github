@@ -166,8 +166,7 @@ def time_stats(df):
     start_hour_cnt = df.groupby(['Hour'])['Hour'].count()
     print('The most common start hour : ',start_hour_cnt.idxmax(), ' with ',start_hour_cnt.max(), 'counts')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def station_stats(df):
@@ -189,8 +188,7 @@ def station_stats(df):
     print('\nMost frequent combination of start station and end station trip:\n')
     print('-----Start Station-------------End Station----------------\n',start_end_station_cnt.idxmax()," with ",start_end_station_cnt.max()," counts")
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def trip_duration_stats(df):
@@ -205,8 +203,7 @@ def trip_duration_stats(df):
     # display mean travel time
     print('Average Trip Duration: ', df['Trip Duration'].mean())
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def user_stats(df):
@@ -239,8 +236,7 @@ def user_stats(df):
     else:
         print('No Birth Year data available.')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print("\nThis took %s seconds." % (time.time() - start_time),"\n"+"-"*40)
 
 
 def display_raw_data(df):
