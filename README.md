@@ -16,7 +16,8 @@ statistics:
 * Trip Duration stats  
   * Displays statistics on the total and average trip duration
 * User stats
-  * Displays statistics on bikeshare users       
+  * Displays statistics on bikeshare users
+Moreover, it also filters the data by day or month.       
 
 ### Files used
 chicago.csv
