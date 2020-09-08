@@ -1,7 +1,7 @@
 import time
 import pandas as pd
 
-CITY_DATA = { 'chicago': 'chicago.csv',
+city_data = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
@@ -24,7 +24,7 @@ def get_filters():
     while True:
         try:
             city = input('Which city do you want to explore (Chicago, New York City, or Washington)?\n')
-            if CITY_DATA.get(city.strip().lower()) is None:
+            if city_data.get(city.strip().lower()) is None:
                 print('City {} is not an option.  Please select a city from the 3 choices.\n'.format(city))
             else:
                 city = city.strip().lower()
@@ -119,21 +119,21 @@ def load_data(city, month, day):
     # value of 99 for month or day means 'All'
     if month < 99:
         #filter by desired month
-        df_temp = pd.read_csv(CITY_DATA[city])
+        df_temp = pd.read_csv(city_data[city])
         df_temp['Month'] = pd.to_datetime(df_temp['Start Time']).dt.month
         df = df_temp[df_temp.Month.eq(month)]
         #print('filtered by month')
         #print(df)
     elif day < 99:
         #filter by desired day
-        df_temp = pd.read_csv(CITY_DATA[city])
+        df_temp = pd.read_csv(city_data[city])
         df_temp['Weekday'] = pd.to_datetime(df_temp['Start Time']).dt.weekday
         df = df_temp[df_temp.Weekday.eq(day)]
         #print('filtered by day')
         #print(df)
     else:
         # no filters
-        df = pd.read_csv(CITY_DATA[city])
+        df = pd.read_csv(city_data[city])
 
     print()
 
