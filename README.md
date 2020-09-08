@@ -15,6 +15,8 @@ statistics:
   * Displays statistics on the most popular stations and trip
 * Trip Duration stats  
   * Displays statistics on the total and average trip duration
+* User stats
+  * Displays statistics on bikeshare users       
 
 ### Files used
 chicago.csv
